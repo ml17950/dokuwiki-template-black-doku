@@ -1,0 +1,356 @@
+/* last change: 2020.06.15 */
+html { box-sizing: border-box; font-size: 10px; /* 10px = 1rem */ }
+*, *:before, *:after { box-sizing: inherit; }
+
+a { color: #2eaeb9; text-decoration: none; transition: all 0.2s ease-in 0s; } /* #0099ff */
+a:visited { color: #2eaeb9; text-decoration: underline; }
+a:hover { color: #e99d3a !important; text-decoration: none; }
+
+body {
+	padding: 0;
+	margin: 0;
+	/*font-family: "Verdana";*/
+	font-family: "Montserrat",sans-serif;
+	font-size: 16px;
+	color: #666;
+}
+
+/*.no { display: none !important; }*/
+
+.toggle > strong { margin-right: 5px; }
+.editbutton_section { text-align: right; }
+
+form {
+  border: none;
+  display: inline;
+}
+
+label.block {
+	display: inline-block;
+}
+	label.block span {
+		display: inline-block;
+		font-weight: bold;
+		text-align: right;
+		width: 200px;
+	}
+	label.block input {
+		width: 200px;
+		border: 1px solid #808080;
+		padding: 2px;
+	}
+label.simple {
+	display: inline-block;
+}
+
+.theme-page {
+	display: grid;
+    grid-template-areas: "header   header     header"
+                         "topnav   topnav     topnav"
+                         "brcnav   brcnav     brcnav"
+						 "leftside midcontent rightside"
+						 "footer   footer     footer";
+	grid-template-columns: 210px auto 210px;
+}
+.theme-header {
+	grid-area: header;
+	padding: 10px 10%;
+	
+	display: grid;
+	grid-template-areas: "hlogo htitle hsearch";
+	grid-template-columns: 100px auto 300px;
+}
+	.theme-header-logo {
+		grid-area: hlogo;
+	}
+	.theme-header-title {
+		grid-area: htitle;
+		color: #333;
+		font-size: 2.3em;
+		padding-top: 10px;
+	}
+	.theme-header-mobile {
+		display: none;
+	}
+	.theme-header-search {
+		grid-area: hsearch;
+		padding-top: 19px;
+	}
+		.theme-header-search .edit {
+			width: 300px;
+			font-size: 1.2em;
+			border-radius: 3px;
+			border: 1px solid #808080;
+			padding: 2px 4px;
+		}
+		.theme-header-search button {
+			color: red;
+			display: none;
+		}
+		.theme-header-search .ajax_qsearch {
+			min-width: 300px;
+			border: 1px solid #808080;
+			padding: 5px;
+			display: none;
+		}
+
+.theme-youarehere { grid-area: topnav; }
+.theme-breadcrumb { grid-area: brcnav; }
+.theme-breadcrumb, .theme-youarehere {
+	background: #252E35;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	color: white;
+	font-size: 14px;
+	letter-spacing: 2px;
+	padding: 10px;
+	padding-left: 10%;
+}
+	.theme-breadcrumb .bchead {}
+	.theme-breadcrumb .bcsep {}
+	.theme-breadcrumb .breadcrumbs {
+		color: #fcd088;
+	}
+	.theme-youarehere .bchead {}
+	.theme-youarehere .bcsep {}
+	.theme-youarehere .wikilink1, .theme-youarehere .wikilink2 {
+		color: #fcd088;
+	}
+
+.theme-sidebar-left {
+	grid-area: leftside;
+	font-size: 13px;
+	padding: 0 10px 20px 10px;
+}
+	.theme-sidebar-left h3 {
+		/*border: 1px solid #8cacbb;
+		background-color: #dee7ec;*/
+		font-weight: bold;
+		padding: 3px;
+		margin: 20px 0 2px 0;
+		line-height: 1.45em;
+		font-size: 90%;
+	}
+	.theme-sidebar-left ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 0 0; /*20px 15px 0 15px;*/
+	}
+	.theme-sidebar-left li {
+		padding: 3px 2px 3px 10px;
+		margin: 0;
+	}
+	.theme-sidebar-left a {
+		display: block;
+		font-weight: normal !important;
+	}
+	.theme-sidebar-left .curid > a {
+		color: #e99d3a;
+	}
+
+.theme-sidebar-right {
+	grid-area: rightside;
+}
+	.theme-sidebar-right .dw__toc {
+		font-size: 12px;
+		margin: 20px 25px 0 25px;
+		width: 175px;
+	}
+		.theme-sidebar-right .dw__toc > h3 {
+			border: 1px solid #8cacbb !important;
+			background-color: #dee7ec !important;
+			text-align: left;
+			font-weight: bold !important;
+			padding: 3px !important;
+			margin-bottom: 2px !important;
+			line-height: 1.45em;
+			font-size: 90% !important;
+		}
+		.theme-sidebar-right .dw__toc > div {
+			border: 1px solid #8cacbb;
+			background: white;
+			color: #000;
+			padding: 5px;
+		}
+		.theme-sidebar-right .dw__toc .toc {
+			list-style-type: square;
+			line-height: 1.3em;
+			padding: 0 0 0 20px;
+			margin: 0;
+		}
+
+.theme-content {
+	grid-area: midcontent;
+	color: #626b75;
+	font-size: 17px;
+	line-height: 1.5em;
+	padding-top: 5px;
+}
+	.theme-messages {
+		margin-bottom: 20px;
+	}
+	.theme-main {
+		min-height: 53vh;
+	}
+	
+	.theme-content .wikilink2 {
+		/* links to non-existing pages */
+		color: #d30;
+		border-bottom: 1px dashed;
+	}
+
+	.theme-content img {
+		max-width: 100%;
+	}
+	.theme-content h1 {
+		color: #333;
+		margin-top: 6px;
+		padding-bottom: 5px;
+		border-bottom: 3px double #a0a0a0;
+	}
+	.theme-content h2 {
+		color: #333;
+		margin-top: 6px;
+		padding-bottom: 5px;
+		border-bottom: 3px double #a0a0a0;
+	}
+	.theme-content h3 {
+		margin-top: 6px;
+		padding-bottom: 5px;
+		border-bottom: 3px double #a0a0a0;
+	}
+	.theme-content h4 { border-bottom: 1px solid #a0a0a0; }
+	.theme-content h5 { border-bottom: 1px dasched #a0a0a0; }
+	.theme-content h5 { border-bottom: 1px dotted #a0a0a0; }
+	.theme-content p {}
+	.theme-content ul {}
+	.theme-content ul li {}
+	.theme-content table { border: 1px solid #808080; margin: 5px; width: 99%; border-collapse: collapse; }
+	.theme-content th { border-bottom: 3px double #808080; background: #dfdfdf; text-align: left; vertical-align: top; font-size: 0.8em; padding: 0 4px; }
+	.theme-content td { border-top: 1px solid #dfdfdf; vertical-align: top; font-size: 0.7em; padding: 0 4px; }
+	.theme-content tr:last-child { border-bottom: 1px solid #808080; }
+	.theme-content .button { font-size: 100%; }
+	.theme-content .code {
+		line-height: 1.3em;
+		color: #333;
+		background: #f5f5f5;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 8px;
+		font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+		white-space: pre-wrap;       /* css-3 */
+		word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	}
+	.theme-content .file {
+		color: #333;
+		background: PowderBlue;
+		border: 1px solid SteelBlue;
+		border-radius: 4px;
+		padding: 8px;
+	}
+	.theme-content .panelContent img { display: inline-block; }
+	.theme-content .panelContent .li { display: inline-block; margin-left: 10px; }
+	.theme-content .panelContent ul { list-style: none; padding: 0; margin: 0; }
+	.theme-content .panelContent li {}
+	.theme-content .panelContent dt { margin-top: 20px; }
+	.theme-content .panelContent dd { display: inline-block; background: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; margin: 0 5px 0 0; padding: 0 5px; }
+	.theme-content .panel + .file { margin-top: 20px; }
+
+	.theme-pageinfo {
+		background: #dfdfdf;
+		border-top: 1px solid #808080;
+		border-left: 1px solid #808080;
+		border-right: 1px solid #808080;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		font-size: 0.6em;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+.theme-footer {
+	grid-area: footer;
+	background: #333;
+	color: #ccc;
+	font-size: 80%;
+}
+	.theme-pagetools {
+		padding: 0 20px 20px 20px;
+		text-align: center;
+	}
+		.theme-pagetools ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.theme-pagetools ul li {
+			display: inline-block;
+			padding: 5px 10px;
+		}
+	.theme-buttons-and-licence {
+		text-align: center;
+		padding: 0 0 10px 0;
+	}
+	.theme-sub-footer {
+		min-height: 15px;
+		background: #232323;
+		color: #AAA;
+		padding: 5px 0;
+		font-size: 0.9em;
+		text-align: center;
+	}
+
+#config__manager .label > span {
+	display: inline-block;
+	width: 200px;
+}
+#config__manager .label > label {
+	display: inline-block;
+	max-width: 715px;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++ Smartphone Styles ++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 860px) {
+	.theme-page {
+		display: grid;
+	    grid-template-areas: "header"
+	                         "topnav"
+	                         "brcnav"
+							 "leftside"
+							 "rightside"
+							 "midcontent"
+							 "footer";
+		grid-template-columns: auto;
+	}
+	.theme-header {
+		grid-template-areas: "hlogo htitle"
+		                     "hsearch hsearch";
+		grid-template-columns: auto;
+		padding: 5px;
+	}
+		.theme-header-title { font-size: 1.5em; }
+		.theme-header-search { padding-left: 7%; }
+	.theme-main { padding: 10px; }
+	.theme-sidebar-right .dw__toc { width: 100%; margin: 0; padding: 5px 20px; }
+	.theme-pageinfo { border-radius: 0; }
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++ Print Styles +++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@media print {
+	.theme-page {
+		display: block;
+
+	}
+	.theme-header { padding: 10px 0; }
+	.theme-header-search { display: none; }
+	.theme-breadcrumb { display: none; }
+	.theme-youarehere { padding: 10px 0; border-bottom: 1px dashed #808080; }
+	.theme-youarehere .bchead { display: none; }
+	.theme-sidebar-left { display: none; }
+	.theme-sidebar-right { display: none; }
+	.theme-main { min-height: 3vh; }
+	.theme-pageinfo { background: white; border: 0; border-top: 1px dashed #808080; color: #808080; }
+	.theme-pagetools { display: none; }
+	.theme-footer { display: none; }
+}
