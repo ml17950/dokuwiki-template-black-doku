@@ -2,6 +2,6 @@ base     black-doku
 author   M. Lindner
 email    martin@andev.de
 date     2020-06-15
-name     Black Doku Theme
+name     Black Doku Theme (**NOTREADY**)
 desc     Template based on BYU 2017 Theme by Corbin Day	- corbin_day@byu.edu
-url      http://www.dokuwiki.org/template:black-doku
+url      https://www.dokuwiki.org/template:black-doku
